@@ -25,6 +25,9 @@ public class Attempt {
     @EndNode
     User user;
 
+    public Attempt() {
+    }
+
     public String getId() {
         return id;
     }
@@ -55,5 +58,18 @@ public class Attempt {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Attempt{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", status='" + status + '\'' +
+                ", score=" + score +
+                ", challengesAttempted=" + challengesAttempted +
+                ", challenge=" + challenge +
+                ", user=" + user +
+                '}';
     }
 }

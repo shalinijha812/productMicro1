@@ -35,6 +35,9 @@ public class Challenge {
         this.userName = userName;
     }
 
+    public Challenge() {
+    }
+
     public String getTitle() {
         return title;
     }

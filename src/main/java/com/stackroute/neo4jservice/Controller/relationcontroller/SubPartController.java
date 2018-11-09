@@ -1,5 +1,6 @@
 package com.stackroute.neo4jservice.Controller.relationcontroller;
 
+import com.stackroute.neo4jservice.domain.nodes.Challenge;
 import com.stackroute.neo4jservice.domain.relation.Post;
 import com.stackroute.neo4jservice.domain.relation.SubPartRelation;
 import com.stackroute.neo4jservice.service.relationservice.serviceinterface.PostService;
@@ -35,6 +36,14 @@ public class SubPartController {
         List<SubPartRelation> subPartRelationList;
         subPartRelationList=subPartService.getAllSubPartRelation();
         ResponseEntity responseEntity=new ResponseEntity<List<SubPartRelation>>(subPartRelationList,HttpStatus.OK);
+        return responseEntity;
+    }
+    @DeleteMapping("subpart/{id}")
+    public ResponseEntity<?> deleteSubPart(@PathVariable("id") String id) {
+        List<SubPartRelation> subPartRelationList;
+        ResponseEntity responseEntity;
+        String message = subPartService.deleteSubPart(id);
+        responseEntity = new ResponseEntity<String>(message, HttpStatus.OK);
         return responseEntity;
     }
 }

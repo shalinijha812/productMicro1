@@ -37,4 +37,12 @@ public class ChallengeController {
         ResponseEntity responseEntity=new ResponseEntity<List<Challenge>>(challengeList,HttpStatus.OK);
         return responseEntity;
     }
+    @DeleteMapping("challenge/{id}")
+    public ResponseEntity<?> deleteChallenge(@PathVariable("id") String id) {
+       List<Challenge> challengeList;
+       ResponseEntity responseEntity;
+       String message = challengeService.deleteChallenge(id);
+       responseEntity = new ResponseEntity<String>(message, HttpStatus.OK);
+        return responseEntity;
+    }
 }

@@ -6,6 +6,9 @@ import org.neo4j.ogm.annotation.RelationshipEntity;
 public class TypeRelation {
     private String id;
 
+    public TypeRelation() {
+    }
+
     public String getName() {
         return name;
     }

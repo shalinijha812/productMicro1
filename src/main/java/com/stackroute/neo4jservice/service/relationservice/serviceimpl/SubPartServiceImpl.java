@@ -26,6 +26,12 @@ public class SubPartServiceImpl implements SubPartService {
     }
 
     @Override
+    public String deleteSubPart(String id) {
+        subPartRepository.deleteById(id);
+        return ("Successfully deleted");
+    }
+
+    @Override
     public List<SubPartRelation> getAllSubPartRelation() {
         return (List<SubPartRelation>)subPartRepository.findAll();
     }

@@ -22,6 +22,9 @@ public class Concept {
         this.parentnodeid = parentnodeid;
     }
 
+    public Concept() {
+    }
+
     public String getNodeid() {
         return nodeid;
     }

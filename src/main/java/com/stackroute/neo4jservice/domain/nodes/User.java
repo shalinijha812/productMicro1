@@ -22,6 +22,9 @@ public class User{
         this.preferredLang = preferredLang;
     }
 
+    public User() {
+    }
+
     public String getName() {
         return name;
     }

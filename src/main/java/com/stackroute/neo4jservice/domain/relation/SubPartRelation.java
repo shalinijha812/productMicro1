@@ -10,12 +10,31 @@ public class SubPartRelation {
     @Id
     private String id;
 
+    public SubPartRelation() {
+    }
+
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Concept getConcept1() {
+        return concept1;
+    }
+
+    public void setConcept1(Concept concept1) {
+        this.concept1 = concept1;
+    }
+
+    public Concept getConcept2() {
+        return concept2;
+    }
+
+    public void setConcept2(Concept concept2) {
+        this.concept2 = concept2;
     }
 
     @Property

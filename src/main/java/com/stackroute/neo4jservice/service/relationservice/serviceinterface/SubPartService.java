@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface SubPartService {
     public SubPartRelation saveSubPartRelation(SubPartRelation subPartRelation);
+    public String deleteSubPart(String id);
     public List<SubPartRelation> getAllSubPartRelation();
 }

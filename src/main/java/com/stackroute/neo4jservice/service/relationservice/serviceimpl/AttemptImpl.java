@@ -23,6 +23,12 @@ public class AttemptImpl implements AttemptService {
     }
 
     @Override
+    public String deleteAttempt(String id) {
+        attemptRepository.deleteById(id);
+        return ("Successfully deleted");
+    }
+
+    @Override
     public List<Attempt> getAllAttempts() {
         return (List<Attempt>)attemptRepository.findAll();
 

@@ -1,5 +1,6 @@
 package com.stackroute.neo4jservice.Controller.nodescontroller;
 
+import com.stackroute.neo4jservice.domain.nodes.Challenge;
 import com.stackroute.neo4jservice.domain.nodes.User;
 import com.stackroute.neo4jservice.service.nodeservice.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +34,14 @@ public class UserController {
         List<User> userList;
         userList=userService.getAllUser();
         ResponseEntity responseEntity=new ResponseEntity<List<User>>(userList,HttpStatus.OK);
+        return responseEntity;
+    }
+    @DeleteMapping("user/{id}")
+    public ResponseEntity<?> deleteUser(@PathVariable("id") String id) {
+        List<User> userList;
+        ResponseEntity responseEntity;
+        String message = userService.deleteUser(id);
+        responseEntity = new ResponseEntity<String>(message, HttpStatus.OK);
         return responseEntity;
     }
 }

@@ -1,6 +1,7 @@
 package com.stackroute.neo4jservice.Controller.nodescontroller;
 
 
+import com.stackroute.neo4jservice.domain.nodes.Challenge;
 import com.stackroute.neo4jservice.domain.nodes.Concept;
 
 import com.stackroute.neo4jservice.service.nodeservice.ConceptService;
@@ -35,6 +36,14 @@ public class ConceptController {
         List<Concept> conceptList;
         conceptList=conceptService.getAllConcepts();
         ResponseEntity responseEntity=new ResponseEntity<List<Concept>>(conceptList,HttpStatus.OK);
+        return responseEntity;
+    }
+    @DeleteMapping("concept/{id}")
+    public ResponseEntity<?> deleteConcept(@PathVariable("id") String id) {
+        List<Challenge> conceptList;
+        ResponseEntity responseEntity;
+        String message = conceptService.deleteConcept(id);
+        responseEntity = new ResponseEntity<String>(message, HttpStatus.OK);
         return responseEntity;
     }
 }

@@ -22,6 +22,14 @@ public class LanguageImpl implements LanguageService {
     }
 
     @Override
+    public String deleteLanguage(String id) {
+            languageRepository.deleteById(id);
+            System.out.println("..................................Coming here");
+            return ("Successfully deleted");
+    }
+
+
+    @Override
     public List<Language> getAllLanguage() {
         return (List<Language>) languageRepository.findAll();
     }

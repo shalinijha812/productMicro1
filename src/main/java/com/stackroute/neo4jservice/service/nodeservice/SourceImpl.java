@@ -25,6 +25,14 @@ public class SourceImpl implements SourceService {
         Source savedSource=sourceRepository.save(source);
         return savedSource;
     }
+
+    @Override
+    public String deleteSource(String id) {
+     sourceRepository.deleteById(id);
+     return ("Successfully deleted");
+    }
+
+
     @Override
     public List<Source> getSource() {
         return (List<Source>) sourceRepository.findAll();

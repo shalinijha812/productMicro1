@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface AttemptService {
     public Attempt saveAttempt(Attempt attempt);
-    //public String deleteUser(String id);
+    public String deleteAttempt(String id);
     public List<Attempt> getAllAttempts();
 }

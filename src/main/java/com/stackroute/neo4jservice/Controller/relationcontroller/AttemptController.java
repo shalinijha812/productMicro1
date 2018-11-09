@@ -1,5 +1,6 @@
 package com.stackroute.neo4jservice.Controller.relationcontroller;
 
+import com.stackroute.neo4jservice.domain.nodes.Challenge;
 import com.stackroute.neo4jservice.domain.nodes.Concept;
 import com.stackroute.neo4jservice.domain.relation.Attempt;
 import com.stackroute.neo4jservice.service.nodeservice.ConceptService;
@@ -35,6 +36,14 @@ public class AttemptController {
         List<Attempt> attemptList;
         attemptList=attemptService.getAllAttempts();
         ResponseEntity responseEntity=new ResponseEntity<List<Attempt>>(attemptList,HttpStatus.OK);
+        return responseEntity;
+    }
+    @DeleteMapping("attempt/{id}")
+    public ResponseEntity<?> deleteAttempt(@PathVariable("id") String id) {
+        List<Attempt> attemptList;
+        ResponseEntity responseEntity;
+        String message = attemptService.deleteAttempt(id);
+        responseEntity = new ResponseEntity<String>(message, HttpStatus.OK);
         return responseEntity;
     }
 }

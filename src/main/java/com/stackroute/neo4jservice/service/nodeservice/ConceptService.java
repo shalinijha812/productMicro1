@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface ConceptService {
     public Concept saveConcept(Concept concept);
-    //public String deleteUser(String id);
+    public String deleteConcept(String id);
     public List<Concept> getAllConcepts();
+
 }

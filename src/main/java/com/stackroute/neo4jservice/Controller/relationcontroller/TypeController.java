@@ -1,5 +1,6 @@
 package com.stackroute.neo4jservice.Controller.relationcontroller;
 
+import com.stackroute.neo4jservice.domain.nodes.Challenge;
 import com.stackroute.neo4jservice.domain.relation.SubPartRelation;
 import com.stackroute.neo4jservice.domain.relation.TypeRelation;
 import com.stackroute.neo4jservice.service.relationservice.serviceinterface.SubPartService;
@@ -35,6 +36,14 @@ public class TypeController {
         List<TypeRelation> typeRelationList;
         typeRelationList=typeService.getAllTypeRelation();
         ResponseEntity responseEntity=new ResponseEntity<List<TypeRelation>>(typeRelationList,HttpStatus.OK);
+        return responseEntity;
+    }
+    @DeleteMapping("type/{id}")
+    public ResponseEntity<?> deleteType(@PathVariable("id") String id) {
+        List<TypeRelation> typeList;
+        ResponseEntity responseEntity;
+        String message = typeService.deleteTypeRelation(id);
+        responseEntity = new ResponseEntity<String>(message, HttpStatus.OK);
         return responseEntity;
     }
 }

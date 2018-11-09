@@ -10,5 +10,5 @@ public interface ChallengeService {
     public Challenge saveChallenge(Challenge challenge);
     public String deleteChallenge(String id);
     public List<Challenge> getAllChallenge();
-    public List<Challenge> getSameLevelChallenge();
+    //public List<Challenge> getSameLevelChallenge();
 }

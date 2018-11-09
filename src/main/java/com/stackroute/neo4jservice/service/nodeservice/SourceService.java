@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface SourceService {
     public Source saveSource(Source source);
-//    public String deleteSource(String id);
+    public String deleteSource(String id);
    public List<Source> getSource();
 }

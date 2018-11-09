@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface LanguageService {
     public Language saveLanguage(Language language);
-    //public String deleteUser(String id);
+    public String deleteLanguage(String id);
     public List<Language> getAllLanguage();
 }

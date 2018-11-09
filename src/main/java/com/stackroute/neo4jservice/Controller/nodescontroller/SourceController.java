@@ -1,5 +1,6 @@
 package com.stackroute.neo4jservice.Controller.nodescontroller;
 
+import com.stackroute.neo4jservice.domain.nodes.Challenge;
 import com.stackroute.neo4jservice.domain.nodes.Source;
 import com.stackroute.neo4jservice.service.nodeservice.SourceService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +34,14 @@ public class SourceController {
         List<Source> sourceList;
         sourceList=sourceService.getSource();
         ResponseEntity responseEntity=new ResponseEntity<List<Source>>(sourceList,HttpStatus.OK);
+        return responseEntity;
+    }
+    @DeleteMapping("source/{id}")
+    public ResponseEntity<?> deleteSource(@PathVariable("id") String id) {
+        List<Source> sourceList;
+        ResponseEntity responseEntity;
+        String message = sourceService.deleteSource(id);
+        responseEntity = new ResponseEntity<String>(message, HttpStatus.OK);
         return responseEntity;
     }
 }

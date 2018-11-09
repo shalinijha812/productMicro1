@@ -26,6 +26,12 @@ public class TypeServiceImpl implements TypeService {
     }
 
     @Override
+    public String deleteTypeRelation(String id) {
+        typeRepository.deleteById(id);
+        return ("Successfully deleted");
+    }
+
+    @Override
     public List<TypeRelation> getAllTypeRelation() {
         return (List<TypeRelation>)typeRepository.findAll();
     }

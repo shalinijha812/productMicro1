@@ -25,6 +25,13 @@ public class ConceptServiceImpl implements ConceptService {
     }
 
     @Override
+    public String deleteConcept(String id) {
+            conceptRepository.deleteById(id);
+            return ("Successfully deleted");
+        }
+
+
+    @Override
     public List<Concept> getAllConcepts() {
         return (List<Concept>)conceptRepository.findAll();
     }

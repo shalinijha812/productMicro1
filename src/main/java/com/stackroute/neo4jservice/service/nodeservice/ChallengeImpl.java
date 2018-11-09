@@ -32,9 +32,9 @@ public class ChallengeImpl implements ChallengeService {
         return  (List<Challenge>)challengeRepository.findAll();
     }
 
-    @Override
-    public List<Challenge> getSameLevelChallenge() {
-
-        return null;
-    }
+//    @Override
+//    public List<Challenge> getSameLevelChallenge() {
+//
+//        return null;
+//    }
 }

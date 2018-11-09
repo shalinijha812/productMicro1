@@ -13,6 +13,9 @@ public class Post {
     private double level;
     private String userName;
 
+    public Post() {
+    }
+
     public String getName() {
         return name;
     }
@@ -25,6 +28,23 @@ public class Post {
 
     @StartNode
     Challenge challenge;
+
+    public Challenge getChallenge() {
+        return challenge;
+    }
+
+    public void setChallenge(Challenge challenge) {
+        this.challenge = challenge;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     @EndNode
     User user;
 
