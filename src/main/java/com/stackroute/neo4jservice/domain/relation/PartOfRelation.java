@@ -15,18 +15,10 @@ public class PartOfRelation{
     private String name;
 
     @StartNode
-    Language language;
-
-    public Concept getConcept() {
-        return concept;
-    }
-
-    public void setConcept(Concept concept) {
-        this.concept = concept;
-    }
+    Concept concept;
 
     @EndNode
-    Concept concept;
+    Language language;
 
     public PartOfRelation() {
     }
@@ -47,7 +39,13 @@ public class PartOfRelation{
         this.language = language;
     }
 
+    public Concept getConcept() {
+        return concept;
+    }
 
+    public void setConcept(Concept concept) {
+        this.concept = concept;
+    }
 
 
     public String getId() {

@@ -9,6 +9,14 @@ public class SubPartRelation {
 
     @Id
     private String id;
+    @Property
+    private String name;
+
+    @StartNode
+    Concept concept1;
+
+    @EndNode
+    Concept concept2;
 
     public SubPartRelation() {
     }
@@ -37,14 +45,7 @@ public class SubPartRelation {
         this.concept2 = concept2;
     }
 
-    @Property
-    private String name;
 
-    @StartNode
-    Concept concept1;
-
-    @EndNode
-    Concept concept2;
 
     public String getId() {
         return id;

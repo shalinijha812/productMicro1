@@ -1,9 +1,8 @@
 package com.stackroute.neo4jservice.Controller.relationcontroller;
 
-import com.stackroute.neo4jservice.domain.nodes.Challenge;
-import com.stackroute.neo4jservice.domain.relation.SubPartRelation;
+
 import com.stackroute.neo4jservice.domain.relation.TypeRelation;
-import com.stackroute.neo4jservice.service.relationservice.serviceinterface.SubPartService;
+
 import com.stackroute.neo4jservice.service.relationservice.serviceinterface.TypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,7 +26,6 @@ public class TypeController {
         ResponseEntity responseEntity;
         TypeRelation savedTypeRelation = typeService.saveTypeRelation(typeRelation);
         responseEntity = new ResponseEntity<TypeRelation>(savedTypeRelation, HttpStatus.CREATED);
-
         return responseEntity;
     }
     @GetMapping("type")

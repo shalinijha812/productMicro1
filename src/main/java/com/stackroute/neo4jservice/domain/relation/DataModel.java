@@ -1,17 +1,24 @@
 package com.stackroute.neo4jservice.domain.relation;
 
+
 import com.stackroute.neo4jservice.domain.nodes.Challenge;
 import com.stackroute.neo4jservice.domain.nodes.Concept;
 import com.stackroute.neo4jservice.domain.nodes.Language;
 import com.stackroute.neo4jservice.domain.nodes.User;
-import org.neo4j.ogm.annotation.*;
+import org.neo4j.ogm.annotation.EndNode;
+import org.neo4j.ogm.annotation.Id;
+import org.neo4j.ogm.annotation.Property;
+import org.neo4j.ogm.annotation.StartNode;
 
-@RelationshipEntity(type="isPostedBy")
-public class Post {
+public class DataModel {
     @Id
     private String id;
     @Property
     private String name;
+    @Property
+    private Language language;
+    @Property
+    private Concept concept;
     @Property
     private double level;
     @StartNode
@@ -19,15 +26,7 @@ public class Post {
     @EndNode
     User user;
 
-    public Post() {
-    }
-
-    public Post(String id, String name, double level, Challenge challenge, User user) {
-        this.id = id;
-        this.name = name;
-        this.level = level;
-        this.challenge = challenge;
-        this.user = user;
+    public DataModel() {
     }
 
     public String getId() {
@@ -44,6 +43,22 @@ public class Post {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Language getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(Language language) {
+        this.language = language;
+    }
+
+    public Concept getConcept() {
+        return concept;
+    }
+
+    public void setConcept(Concept concept) {
+        this.concept = concept;
     }
 
     public double getLevel() {
@@ -72,9 +87,11 @@ public class Post {
 
     @Override
     public String toString() {
-        return "Post{" +
+        return "DataModel{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
+                ", language=" + language +
+                ", concept=" + concept +
                 ", level=" + level +
                 ", challenge=" + challenge +
                 ", user=" + user +

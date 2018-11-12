@@ -1,5 +1,6 @@
 package com.stackroute.neo4jservice.domain.nodes;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.neo4j.ogm.annotation.*;
 
 import java.util.List;
@@ -7,11 +8,9 @@ import java.util.List;
 @NodeEntity
 public class User{
 
-    @Property
-
+    @Id
     private String id;
     @Property
-    @Id
     private String name;
     @Property
     private String preferredLang;
@@ -21,6 +20,12 @@ public class User{
         this.name = name;
         this.preferredLang = preferredLang;
     }
+    @JsonIgnore
+    @Relationship(type="isPostedBy")
+    Challenge challenge;
+    @JsonIgnore
+    @Relationship(type="isAttemptedBy")
+    Challenge challengeA;
 
     public User() {
     }
@@ -48,8 +53,14 @@ public class User{
     public void setId(String id) {
         this.id = id;
     }
-    @Relationship(type="isPostedBy",direction=Relationship.INCOMING)
-    List<Challenge> challengeP;
-    @Relationship(type="isAttemptedBy",direction=Relationship.INCOMING)
-    List<Challenge> challengeA;
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", preferredLang='" + preferredLang + '\'' +
+                ", challengeA=" + challengeA +
+                '}';
+    }
 }

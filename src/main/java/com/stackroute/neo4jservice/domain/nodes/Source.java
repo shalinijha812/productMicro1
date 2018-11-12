@@ -12,7 +12,7 @@ import org.neo4j.ogm.annotation.Relationship;
 public class Source {
     @Id
     private String id;
-
+    @Property
     private String name;
     @JsonIgnore
     @Relationship(type="isA" ,direction = Relationship.INCOMING)

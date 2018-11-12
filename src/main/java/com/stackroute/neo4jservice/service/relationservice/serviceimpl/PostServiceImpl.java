@@ -11,7 +11,7 @@ import java.util.List;
 
 @Service
 public class PostServiceImpl implements PostService {
-    PostRepository postRepository;
+    private PostRepository postRepository;
     @Autowired
     public PostServiceImpl(PostRepository postRepository)
     {
@@ -20,8 +20,10 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public Post savePost(Post post) {
-        Post savedPost = postRepository.save(post);
-        return savedPost;
+        System.out.println("in service....................................................."+ post);
+        Post savedPost1=postRepository.save(post);
+        System.out.println("...................saved post..........................." + savedPost1);
+        return savedPost1;
     }
 
     @Override

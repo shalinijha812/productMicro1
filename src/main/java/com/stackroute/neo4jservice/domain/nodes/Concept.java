@@ -1,5 +1,6 @@
 package com.stackroute.neo4jservice.domain.nodes;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.neo4j.ogm.annotation.Id;
 import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Property;
@@ -15,6 +16,12 @@ public class Concept {
     private String name;
     @Property
     private String parentnodeid;
+    @JsonIgnore
+    @Relationship(type = "isPartOf")
+    Language language;
+    @JsonIgnore
+    @Relationship(type="isSubPartOf")
+    Concept concept;
 
     public Concept(String nodeid, String name, String parentnodeid) {
         this.nodeid = nodeid;
@@ -48,8 +55,8 @@ public class Concept {
     public void setParentnodeid(String parentnodeid) {
         this.parentnodeid = parentnodeid;
     }
-    @Relationship(type="isPartOf",direction=Relationship.INCOMING)
-    Language language;
-    @Relationship(type="isSubPartOf",direction=Relationship.OUTGOING)
-    Concept concept;
+//    @Relationship(type="isPartOf",direction=Relationship.INCOMING)
+//    Language language;
+//    @Relationship(type="isSubPartOf",direction=Relationship.OUTGOING)
+//    Concept concept;
 }

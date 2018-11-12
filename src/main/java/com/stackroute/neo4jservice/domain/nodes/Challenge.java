@@ -1,6 +1,7 @@
 package com.stackroute.neo4jservice.domain.nodes;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.neo4j.ogm.annotation.Id;
 import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Property;
@@ -17,25 +18,28 @@ public class Challenge {
     @Property
     private double level;
     @Property
-    private String topic;
-    @Property
-    private String language;
-    @Property
     private String smallDescription;
-    @Property
-    private String userName;
 
-    public Challenge(String id,String title,double level, String topic, String language, String smallDescription, String userName) {
+    @JsonIgnore
+    @Relationship(type="isTypeOf")
+    Concept concept;
+    public Challenge() {
 
-        this.id=id;
-        this.level = level;
-        this.topic = topic;
-        this.language = language;
-        this.smallDescription = smallDescription;
-        this.userName = userName;
     }
 
-    public Challenge() {
+    public Challenge(String id, String title, double level, String smallDescription) {
+        this.id = id;
+        this.title = title;
+        this.level = level;
+        this.smallDescription = smallDescription;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -46,14 +50,6 @@ public class Challenge {
         this.title = title;
     }
 
-    public String getSmallDescription() {
-        return smallDescription;
-    }
-
-    public void setSmallDescription(String smallDescription) {
-        this.smallDescription = smallDescription;
-    }
-
     public double getLevel() {
         return level;
     }
@@ -62,41 +58,22 @@ public class Challenge {
         this.level = level;
     }
 
-    public String getTopic() {
-        return topic;
+    public String getSmallDescription() {
+        return smallDescription;
     }
 
-    public void setTopic(String topic) {
-        this.topic = topic;
+    public void setSmallDescription(String smallDescription) {
+        this.smallDescription = smallDescription;
     }
 
-    public String getLanguage() {
-        return language;
+    @Override
+    public String toString() {
+        return "Challenge{" +
+                "id='" + id + '\'' +
+                ", title='" + title + '\'' +
+                ", level=" + level +
+                ", smallDescription='" + smallDescription + '\'' +
+                '}';
     }
-
-    public void setLanguage(String language) {
-        this.language = language;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-    @Relationship(type="isTypeOf",direction=Relationship.OUTGOING)
-    Concept concept;
-//    @Relationship(type="isPostedBy",direction=Relationship.OUTGOING)
-//    User user1;
-//    @Relationship(type="isAttemptedBy",direction=Relationship.OUTGOING)
-//    User user2;
 }
+

@@ -17,7 +17,23 @@ public class Attempt {
     private String status;
     @Property
     private double score;
-    public List<String> challengesAttempted;
+
+
+    public Challenge getChallenge() {
+        return challenge;
+    }
+
+    public void setChallenge(Challenge challenge) {
+        this.challenge = challenge;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     @StartNode
     Challenge challenge;
@@ -67,7 +83,6 @@ public class Attempt {
                 ", name='" + name + '\'' +
                 ", status='" + status + '\'' +
                 ", score=" + score +
-                ", challengesAttempted=" + challengesAttempted +
                 ", challenge=" + challenge +
                 ", user=" + user +
                 '}';
