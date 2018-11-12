@@ -22,6 +22,7 @@ public class TypeServiceImpl implements TypeService {
     @Override
     public TypeRelation saveTypeRelation(TypeRelation typeRelation) {
         TypeRelation savedTypeRelation = typeRepository.save(typeRelation);
+        System.out.println("...............in type relation........."+ savedTypeRelation);
         return savedTypeRelation;
     }
 

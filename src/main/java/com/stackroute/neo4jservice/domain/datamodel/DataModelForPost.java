@@ -1,32 +1,39 @@
-package com.stackroute.neo4jservice.domain.relation;
+package com.stackroute.neo4jservice.domain.datamodel;
 
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.stackroute.neo4jservice.domain.nodes.Challenge;
 import com.stackroute.neo4jservice.domain.nodes.Concept;
 import com.stackroute.neo4jservice.domain.nodes.Language;
 import com.stackroute.neo4jservice.domain.nodes.User;
 import org.neo4j.ogm.annotation.*;
 
-@RelationshipEntity(type="isPostedBy")
-public class Post {
+public class DataModelForPost {
     @Id
     //@GeneratedValue
     private int id;
 //    @Property
 //    private String name;
-//    @Property
-//    private double level;
+//    @JsonIgnore
+    @Property
+    private String languageName;
+//    @JsonIgnore
+    @Property
+    private String conceptName;
+
     @StartNode
     Challenge challenge;
     @EndNode
     User user;
 
-    public Post() {
+    public DataModelForPost() {
     }
 
-    public Post(int id, Challenge challenge, User user) {
+    public DataModelForPost(int id, String languageName, String conceptName,Challenge challenge, User user) {
         this.id = id;
-        //this.name = name;
-        //this.level = level;
+        this.languageName = languageName;
+        this.conceptName = conceptName;
+       // this.level = level;
         this.challenge = challenge;
         this.user = user;
     }
@@ -47,6 +54,8 @@ public class Post {
 //        this.name = name;
 //    }
 
+
+
 //    public double getLevel() {
 //        return level;
 //    }
@@ -57,6 +66,22 @@ public class Post {
 
     public Challenge getChallenge() {
         return challenge;
+    }
+
+    public String getLanguageName() {
+        return languageName;
+    }
+
+    public void setLanguageName(String languageName) {
+        this.languageName = languageName;
+    }
+
+    public String getConceptName() {
+        return conceptName;
+    }
+
+    public void setConceptName(String conceptName) {
+        this.conceptName = conceptName;
     }
 
     public void setChallenge(Challenge challenge) {
@@ -73,10 +98,11 @@ public class Post {
 
     @Override
     public String toString() {
-        return "Post{" +
+        return "DataModelForPost{" +
                 "id='" + id + '\'' +
-               // ", name='" + name + '\'' +
-              //  ", level=" + level +
+                ", languageName=" + languageName +
+                ", conceptName=" + conceptName +
+//                ", level=" + level +
                 ", challenge=" + challenge +
                 ", user=" + user +
                 '}';

@@ -10,9 +10,13 @@ import java.util.List;
 @RelationshipEntity(type="isAttemptedBy")
 public class Attempt {
     @Id
-    private String id;
-    @Property
-    private String name;
+    //@GeneratedValue
+    private int id;
+
+
+
+    //    @Property
+//    private String name;
     @Property
     private String status;
     @Property
@@ -43,14 +47,21 @@ public class Attempt {
 
     public Attempt() {
     }
-
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
+
+//    public String getId() {
+//        return id;
+//    }
+//
+//    public void setId(String id) {
+//        this.id = id;
+//    }
 
     public String getStatus() {
         return status;
@@ -68,19 +79,18 @@ public class Attempt {
         this.score = score;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
+//    public String getName() {
+//        return name;
+//    }
+//
+//    public void setName(String name) {
+//        this.name = name;
+//    }
 
     @Override
     public String toString() {
         return "Attempt{" +
                 "id='" + id + '\'' +
-                ", name='" + name + '\'' +
                 ", status='" + status + '\'' +
                 ", score=" + score +
                 ", challenge=" + challenge +

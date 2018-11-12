@@ -8,9 +8,11 @@ import org.neo4j.ogm.annotation.*;
 public class TypeRelation {
 
    @Id
-    private String id;
    @Property
-    private String name;
+   //@GeneratedValue
+    private int id;
+//   @Property
+//    private String name;
 
     @StartNode
     Challenge challenge;
@@ -19,11 +21,12 @@ public class TypeRelation {
 
     public TypeRelation() {
     }
-    public TypeRelation(String id, String name) {
+    public TypeRelation(int id, Challenge challenge, Concept concept) {
         this.id = id;
-        this.name = name;
+        this.challenge = challenge;
+        this.concept = concept;
     }
-    public Challenge getChallenge() {
+ public Challenge getChallenge() {
         return challenge;
     }
 
@@ -39,19 +42,19 @@ public class TypeRelation {
         this.concept = concept;
     }
 
-    public String getName() {
-        return name;
-    }
+//    public String getName() {
+//        return name;
+//    }
+//
+//    public void setName(String name) {
+//        this.name = name;
+//    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -59,7 +62,6 @@ public class TypeRelation {
     public String toString() {
         return "TypeRelation{" +
                 "id='" + id + '\'' +
-                ", name='" + name + '\'' +
                 ", challenge=" + challenge +
                 ", concept=" + concept +
                 '}';
