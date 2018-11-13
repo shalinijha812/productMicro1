@@ -18,7 +18,7 @@ public class Challenge {
     @Property
     private double level;
     @Property
-    private String smallDescription;
+    private String challengeStamp;
 
     @JsonIgnore
     @Relationship(type="isTypeOf")
@@ -27,11 +27,11 @@ public class Challenge {
 
     }
 
-    public Challenge(String id, String title, double level, String smallDescription) {
+    public Challenge(String id, String title, double level, String challengeStamp) {
         this.id = id;
         this.title = title;
         this.level = level;
-        this.smallDescription = smallDescription;
+        this.challengeStamp = challengeStamp;
     }
 
     public String getId() {
@@ -58,12 +58,12 @@ public class Challenge {
         this.level = level;
     }
 
-    public String getSmallDescription() {
-        return smallDescription;
+    public String getchallengeStamp() {
+        return challengeStamp;
     }
 
     public void setSmallDescription(String smallDescription) {
-        this.smallDescription = smallDescription;
+        this.challengeStamp = smallDescription;
     }
 
     @Override
@@ -72,7 +72,7 @@ public class Challenge {
                 "id='" + id + '\'' +
                 ", title='" + title + '\'' +
                 ", level=" + level +
-                ", smallDescription='" + smallDescription + '\'' +
+                ", smallDescription='" + challengeStamp + '\'' +
                 '}';
     }
 }

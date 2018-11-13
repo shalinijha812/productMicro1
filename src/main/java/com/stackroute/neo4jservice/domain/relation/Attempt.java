@@ -5,13 +5,29 @@ import com.stackroute.neo4jservice.domain.nodes.User;
 
 import org.neo4j.ogm.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 @RelationshipEntity(type="isAttemptedBy")
 public class Attempt {
+
     @Id
+
     //@GeneratedValue
+    @Property
     private int id;
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    @Property
+    private Date date;
+
 
 
 
@@ -90,7 +106,8 @@ public class Attempt {
     @Override
     public String toString() {
         return "Attempt{" +
-                "id='" + id + '\'' +
+                "id=" + id +
+                ", date=" + date +
                 ", status='" + status + '\'' +
                 ", score=" + score +
                 ", challenge=" + challenge +

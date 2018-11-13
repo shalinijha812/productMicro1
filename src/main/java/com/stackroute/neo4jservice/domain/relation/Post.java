@@ -6,11 +6,28 @@ import com.stackroute.neo4jservice.domain.nodes.Language;
 import com.stackroute.neo4jservice.domain.nodes.User;
 import org.neo4j.ogm.annotation.*;
 
+import java.util.Date;
+
 @RelationshipEntity(type="isPostedBy")
 public class Post {
-    @Id
+
+
     //@GeneratedValue
+    @Id
     private int id;
+
+    public Date getDate() {
+        return date;
+    }
+
+
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    @Property
+    private Date date;
 //    @Property
 //    private String name;
 //    @Property
@@ -74,11 +91,11 @@ public class Post {
     @Override
     public String toString() {
         return "Post{" +
-                "id='" + id + '\'' +
-               // ", name='" + name + '\'' +
-              //  ", level=" + level +
+                "id=" + id +
+                ", date=" + date +
                 ", challenge=" + challenge +
                 ", user=" + user +
                 '}';
     }
+
 }

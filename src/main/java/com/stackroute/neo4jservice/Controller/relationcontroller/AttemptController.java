@@ -49,8 +49,9 @@ public class AttemptController {
         Concept searchedConcept=null;
         // create a attempt object from data
         Attempt attempt = new Attempt();
-       // attempt.setId(data.getId());
+        attempt.setId(data.getId());
         attempt.setScore(data.getScore());
+        attempt.setDate(java.util.Calendar.getInstance().getTime());
         attempt.setStatus(data.getStatus());
         attempt.setChallenge(data.getChallenge());
         attempt.setUser(data.getUser());
@@ -59,7 +60,7 @@ public class AttemptController {
 
         // write the logic to fefth the concept from the database based on the concept name
         // Concept concept = repo.getConcept("name");
-        String conceptName=data.getConcept().getName();
+        String conceptName=data.getConceptName();
         try {
             searchedConcept = conceptService.searchConceptByName(conceptName);
         }
@@ -71,7 +72,8 @@ public class AttemptController {
         TypeRelation tr = new TypeRelation();
         tr.setChallenge(data.getChallenge());
         tr.setConcept(searchedConcept);
-        typeService.saveTypeRelation(tr);
+            TypeRelation savedTypeRelation=typeService.saveTypeRelation(tr);
+            System.out.println("....................in controller......."+savedTypeRelation);
         responseEntity = new ResponseEntity<Attempt>(savedAttempt, HttpStatus.CREATED);
         return responseEntity;
 //        Attempt savedAttempt = attemptService.saveAttempt(attempt);

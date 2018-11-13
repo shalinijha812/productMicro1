@@ -10,6 +10,7 @@ import org.neo4j.ogm.annotation.*;
 public class DataModelForAttempt {
 
 
+
     @Id
    // @GeneratedValue
     private int id;
@@ -19,12 +20,17 @@ public class DataModelForAttempt {
     private double score;
     //    @Property
 //    private String name;
-    @JsonIgnore
+//    @JsonIgnore
+//    @Property
+//    private Language language;
+//    @JsonIgnore
+//    @Property
+//    private Concept concept;
     @Property
-    private Language language;
-    @JsonIgnore
+    private String languageName;
+    //    @JsonIgnore
     @Property
-    private Concept concept;
+    private String conceptName;
     @StartNode
     Challenge challenge;
     @EndNode
@@ -33,12 +39,12 @@ public class DataModelForAttempt {
     public DataModelForAttempt() {
     }
 
-    public DataModelForAttempt(int id, String status, double score, Language language, Concept concept, Challenge challenge, User user) {
+    public DataModelForAttempt(int id, String status, double score, String languageName, String conceptName, Challenge challenge, User user) {
         this.id = id;
         this.status = status;
         this.score = score;
-        this.language = language;
-        this.concept = concept;
+        this.languageName = languageName;
+        this.conceptName = conceptName;
         this.challenge = challenge;
         this.user = user;
     }
@@ -67,21 +73,36 @@ public class DataModelForAttempt {
         this.score = score;
     }
 
-    public Language getLanguage() {
-        return language;
+    public String getLanguageName() {
+        return languageName;
     }
 
-    public void setLanguage(Language language) {
-        this.language = language;
+    public void setLanguageName(String languageName) {
+        this.languageName = languageName;
     }
 
-    public Concept getConcept() {
-        return concept;
+    public String getConceptName() {
+        return conceptName;
     }
 
-    public void setConcept(Concept concept) {
-        this.concept = concept;
+    public void setConceptName(String conceptName) {
+        this.conceptName = conceptName;
     }
+//    public String getLanguage() {
+//        return languageName;
+//    }
+//
+//    public void setLanguage(String languageName) {
+//        this.languageName = languageName;
+//    }
+//
+//    public String getConcept() {
+//        return concep;
+//    }
+//
+//    public void setConcept(Concept concept) {
+//        this.concept = concept;
+//    }
 
     public Challenge getChallenge() {
         return challenge;
@@ -105,8 +126,8 @@ public class DataModelForAttempt {
                 "id=" + id +
                 ", status='" + status + '\'' +
                 ", score=" + score +
-                ", language=" + language +
-                ", concept=" + concept +
+                ", languageName=" + languageName +
+                ", conceptName=" + conceptName +
                 ", challenge=" + challenge +
                 ", user=" + user +
                 '}';
