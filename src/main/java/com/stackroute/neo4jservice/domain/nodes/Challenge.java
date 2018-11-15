@@ -72,7 +72,7 @@ public class Challenge {
                 "id='" + id + '\'' +
                 ", title='" + title + '\'' +
                 ", level=" + level +
-                ", smallDescription='" + challengeStamp + '\'' +
+                ", challengeStamp='" + challengeStamp + '\'' +
                 '}';
     }
 }
